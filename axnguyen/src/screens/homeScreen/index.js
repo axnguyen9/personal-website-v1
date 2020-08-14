@@ -43,9 +43,11 @@ export const HomeScreen = () => {
             A CS + Design student @ Cornell University 
             dedicated to empowering myself and others 
             through the intersections of design, tech, 
-            and socia impact, particularly in pushing 
-            forth equal access to quality education.  
+            and socia impact, particularly youth 
+            empowerment despite socioeconomic 
+            disparities in education.  
           </Typography>
+          <Typography variant="body1">axn3@cornell.edu</Typography>
           <IconButton aria-label="github" >
             <Link
               href="https://github.com/axnguyen9"
