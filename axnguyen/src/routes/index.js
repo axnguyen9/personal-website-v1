@@ -6,10 +6,12 @@ import {AboutScreen} from "../screens/aboutScreen";
 import NavBar from "../components/navbar";
 import Footer from "../components/footer";
 
+import "./routes.css";
+
 function Routes(props) {
   return (
-    <div>
-      <div>
+    <div className="pageContainer">
+      <div className="contentWrap">
         <Router>
           <nav><NavBar /></nav>
           <Switch>

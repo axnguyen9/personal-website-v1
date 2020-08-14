@@ -7,7 +7,7 @@ import './App.css';
 
 function App() {
   return (
-    <div>
+    <div className="App">
       <MuiThemeProvider theme={responsiveFontSizes(CustomTheme)}>
         <Routes />
       </MuiThemeProvider>

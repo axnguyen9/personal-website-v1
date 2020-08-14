@@ -2,7 +2,7 @@ import React from "react";
 import { Typography } from "@material-ui/core";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import { Link } from "react-router-dom";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/sig.png";
 
 const useStyles = makeStyles((theme) => ({
   navBar: {
@@ -10,11 +10,13 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    border: '1px solid black',
   },
   logo: {
     height: '100%',
-    border: '1px solid black',
+  },
+  about: {
+    color: '#32161F',
+    textDecoration: 'none',
   },
 }));
 
@@ -25,7 +27,9 @@ export default function NavBar() {
       <Link to="/" className={classes.logo}>
         <img src={logo} className={classes.logo}/>
       </Link>
-      <Typography variant='button'>About</Typography>
+      <Typography className={classes.about} variant='button' component={Link} to={"/about"}>
+          About
+      </Typography>
     </div>
   );
 }

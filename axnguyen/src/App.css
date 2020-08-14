@@ -38,3 +38,8 @@
        url('fonts/martel-v4-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
        url('fonts/martel-v4-latin-regular.svg#Martel') format('svg'); /* Legacy iOS */
 }
+
+.App {
+  width: 100vw;
+  background-color: #F5F5F5;
+}
