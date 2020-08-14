@@ -25,7 +25,7 @@ export default function NavBar() {
       <Link to="/" className={classes.logo}>
         <img src={logo} className={classes.logo}/>
       </Link>
-      <Typography>ABOUT</Typography>
+      <Typography variant='button'>About</Typography>
     </div>
   );
 }

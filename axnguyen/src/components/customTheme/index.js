@@ -1,0 +1,42 @@
+import {createMuiTheme} from '@material-ui/core/styles';
+
+// Assumes default font size = 16px
+export const CustomTheme = createMuiTheme({
+  typography: {
+    fontFamily: [
+      'Karla',
+      'Martel',
+      'sans-serif'
+    ].join(','),
+
+    h1: {
+      font: 'Karla',
+      fontSize: '4rem', //64px
+      fontWeight: 'bold',
+    },
+
+    h2: {
+      font: 'Karla',
+      fontSize: '2.25rem', //36px
+      fontWeight: 'bold',
+    },
+
+    button: {
+      font: 'Karla',
+      fontSize: '1.5rem', //24px
+      fontWeight: '700',
+    },
+
+    subtitle1: {
+      font: 'Karla',
+      fontSize: '1.125rem', //18px
+      fontWeight: 'normal',
+    },
+    
+    body1: {
+      font: 'Martel',
+      fontSize: '1.25rem', //20px
+      fontWeight: 'normal',
+    },
+  },
+});
