@@ -1,14 +1,18 @@
-import React from "react";
-import { Typography, IconButton } from "@material-ui/core";
-import InstagramIcon from '@material-ui/icons/Instagram';
-import LinkedInIcon from '@material-ui/icons/LinkedIn';
-import GitHubIcon from '@material-ui/icons/GitHub';
+import React, { useState } from "react";
+import { Typography, Button } from "@material-ui/core";
+import FilterVintageIcon from '@material-ui/icons/FilterVintage';
 import { Link } from 'react-router-dom';
+import { SocialMedia } from '../../components/socialMedia';
+import { ProjectCard } from '../../components/projectCard';
+import { devProjs, designProjs, allProjs } from '../../components/projectCard/project.js';
 import self from "../../assets/self.png";
+import pigpocket from "../../assets/pigpocket.png";
 
 const styles = {
-  intro: {
+  body: {
     margin: '0 10%',
+  },
+  intro: {
     display: 'flex',
     justifyContent: 'space-around',
     alignItems: 'center',
@@ -26,14 +30,43 @@ const styles = {
   name: {
     color: '#CE796B',
   },
-  link: {
+  categories: {
     display: 'flex',
+    alignItems: 'center',
   },
 };
 
 export const HomeScreen = () => {
+  const [catClicked, setCatClicked] = useState("all");
+
+  const devCards = devProjs.map((proj) => {
+    return(
+      <ProjectCard 
+        color={proj.color}
+        projTitle={proj.title}
+        img={proj.img}
+        blurb={proj.blurb}
+        skills={proj.skills}
+      />
+    );
+  })
+
+  const designCards = designProjs.map((proj) => {
+    return(
+      <ProjectCard 
+        color={proj.color}
+        projTitle={proj.title}
+        img={proj.img}
+        blurb={proj.blurb}
+        skills={proj.skills}
+      />
+    );
+  })
+
+  const allCards = devCards.concat(designCards);
+
   return (
-    <div>
+    <div style={styles.body}>
       <div style={styles.intro}>
         <img src={self} style={styles.selfPortrait}/>
         <div style={styles.blurb}>
@@ -48,36 +81,41 @@ export const HomeScreen = () => {
             disparities in education.  
           </Typography>
           <Typography variant="body1">axn3@cornell.edu</Typography>
-          <IconButton aria-label="github" >
-            <Link
-              href="https://github.com/axnguyen9"
-              target="_blank"
-              rel="noopener"
-              style={styles.link}>
-                <GitHubIcon style={{ color: 'black' }}/>
-            </Link>    
-          </IconButton> 
-          <IconButton>
-            <Link
-              href="https://www.linkedin.com/in/axnguyen/"
-              target="_blank"
-              rel="noopener"
-              style={styles.link}>
-                <LinkedInIcon style={{ color: 'black' }}/>
-            </Link>
-          </IconButton>
-          <IconButton aria-label="instagram" >
-            <Link
-              href="https://www.instagram.com/"
-              target="_blank"
-              rel="noopener"
-              style={styles.link}>
-                <InstagramIcon style={{ color: 'black' }}/>
-            </Link>    
-          </IconButton> 
-          
-          
+          <SocialMedia />
         </div>
+      </div>
+      <div style={styles.categories}>
+        <Button onClick={() => setCatClicked('all')}>
+          <Typography 
+            variant="h1" 
+            style={{color: catClicked === 'all' ? '#CE796B' : '#842640' }}
+          >
+            ALL
+          </Typography>
+        </Button>
+        <FilterVintageIcon style={{ color: '#842640' }} />
+        <Button onClick={() => setCatClicked('dev')}>
+          <Typography 
+            variant="h1"
+            style={{color: catClicked === 'dev' ? '#CE796B' : '#842640' }}
+          >
+            DEV
+          </Typography>
+        </Button>
+        <FilterVintageIcon style={{ color: '#842640' }} />
+        <Button onClick={() => setCatClicked('design')}>
+          <Typography 
+            variant="h1"
+            style={{color: catClicked === 'design' ? '#CE796B' : '#842640' }}
+          >
+            DESIGN
+          </Typography>
+        </Button>
+      </div>
+      <div>
+        {catClicked === 'all' && allCards}
+        {catClicked === 'dev' && devCards}
+        {catClicked === 'design' && designCards}
       </div>
     </div>
   );
