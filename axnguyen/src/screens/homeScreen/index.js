@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Typography, Button } from "@material-ui/core";
 import FilterVintageIcon from '@material-ui/icons/FilterVintage';
 import { Link } from 'react-router-dom';
@@ -6,8 +6,6 @@ import { SocialMedia } from '../../components/socialMedia';
 import { ProjectCard } from '../../components/projectCard';
 import { devProjs, designProjs } from '../../components/projectCard/project.js';
 import self from "../../assets/self.png";
-import lottie from 'lottie-web';
-import animationData from '../../lottie/data.json';
 
 import pigpocket from "../../assets/pigpocket.png";
 
@@ -40,17 +38,6 @@ const styles = {
 };
 
 export const HomeScreen = () => {
-  let animObj = null;
-  /*useEffect(() => {
-    // call loadAnimation to start the animation
-    animObj = lottie.loadAnimation({
-      container: this.animBox,
-      renderer: 'svg',
-      loop: true,
-      autoplay: true,
-      animationData: animationData
-    });
-  })*/
   const [catClicked, setCatClicked] = useState("all");
 
   const devCards = devProjs.map((proj) => {
@@ -82,8 +69,7 @@ export const HomeScreen = () => {
   return (
     <div style={styles.body}>
       <div style={styles.intro}>
-        {/*<div style={self} ref={ ref => this.animBox = ref}></div>*/}
-        {/*<img src={self} style={styles.selfPortrait}/>*/}
+        <img src={self} style={styles.selfPortrait}/>
         <div style={styles.blurb}>
           <Typography variant="button">HEY THERE, I'M</Typography>
           <Typography variant="h1" style={styles.name}>ANNA NGUYEN</Typography>
