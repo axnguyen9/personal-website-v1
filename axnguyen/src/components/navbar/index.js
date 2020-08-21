@@ -7,6 +7,7 @@ import logo from "../../assets/sig.png";
 const useStyles = makeStyles((theme) => ({
   navBar: {
     height: '20vh',
+    margin: '0 5%',
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',

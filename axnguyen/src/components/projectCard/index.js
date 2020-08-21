@@ -4,6 +4,8 @@ import { SkillsTags } from '../skillsTags';
 
 const styles = {
   card: {
+    marginTop: '5%',
+    minHeight: '60vh',
     display: 'flex',
     justifyContent: 'space-around',
     alignItems: 'stretch',
